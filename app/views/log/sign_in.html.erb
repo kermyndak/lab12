@@ -1,0 +1,15 @@
+<%= form_with url: "/log/log", method: :post do |form| %>
+  <div class="email">
+    <%= form.label :email, "Email:" %>
+    <%= form.text_field :email %>
+  </div>
+  <div class="password">
+    <%= form.label :password, "Password:" %>
+    <%= form.password_field :password %>
+  </div>
+  <%= form.submit "Log In" , class: 'btn' %>
+<% end %>
+
+<div id="msg"></div>
+
+<%= button_to 'На главную', root_path, method: :get %>

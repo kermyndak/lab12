@@ -64,3 +64,11 @@ group :development do
   # gem "spring"
 end
 
+
+gem "bcrypt", "~> 3.1"
+
+gem "rspec-rails", "~> 6.0"
+
+gem "capybara", "~> 3.38"
+
+gem "selenium-webdriver", "~> 4.7"

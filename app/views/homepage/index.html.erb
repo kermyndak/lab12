@@ -1,0 +1,36 @@
+<div class="header">
+    <div class="nav">
+    <li>
+        <a href="/">В начало</a>
+    </li>
+    </div>
+    <div class="log">
+    <li id="links-log">
+        <% unless User.find_by_id(session[:current_user_id]).nil? %>
+            <a href="/log/sign_out">Log Out</a>
+        <% else %>
+            <a href="/log/sign_in">Log In</a>
+            <a href="/users/new">Sign Up</a>
+        <% end %>
+    </li>
+    </div>
+</div>
+<div class="main">
+    <div class="container">
+        <p>На сайте зарегистрированно <%= User.count %></p>
+        <% if !session[:current_user_id].nil? && session[:current_user_id] > 0 %>
+            <div id="form">
+                <%= form_with url: "root/show", method: :get do |form| %>
+                <%= form.label :query, "Введите число для поиска дружественных чисел в промежутке от 1 до этого числа:", :class => 'label-form' %>
+                <%= form.text_field :query, value: "350" %>
+                <%= form.submit "Поиск", class: 'btn btn-danger' %>
+                <% end %>
+                <%= flash[:notice] %>
+            </div>
+        <% end %>
+        <div id="result"></div>
+    </div>
+</div>
+<div class="footer">
+</div>
+
